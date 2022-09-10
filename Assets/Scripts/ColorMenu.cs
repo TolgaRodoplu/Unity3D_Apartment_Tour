@@ -3,14 +3,13 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
+
 public class ColorMenu : MonoBehaviour
 {
     [SerializeField] GameObject Menu;
     [SerializeField] Slider sliderRed, sliderGreen, sliderBlue;
-    [SerializeField] Image colorImage;
     [SerializeField] TMP_InputField inputRed, inputGreen, inputBlue;
     Vector3 matRGB;
-    bool active = false;
 
     private void Start()
     {
@@ -22,7 +21,6 @@ public class ColorMenu : MonoBehaviour
     private void Initilize(Vector3 rgb)
     {
         matRGB = rgb;
-        colorImage.color = new Color(matRGB.x, matRGB.y, matRGB.z);
         UpdateSliders(rgb);
         UpdateInputFields(rgb);
     }
@@ -30,8 +28,7 @@ public class ColorMenu : MonoBehaviour
     private void UpdateColor()
     {
         
-        //change image color
-        colorImage.color = new Color(matRGB.x, matRGB.y, matRGB.z);
+        
         EventSystem.instance.ColorUpdated(matRGB);
     }
 

@@ -7,10 +7,21 @@ public class Colorable : MonoBehaviour,IInteractable
     bool coloring;
     Material mat;
     Vector3 matColor;
+
+    string _type;
+    
+    public string type
+    {
+        get => _type;
+        set => _type = value;
+    }
+
     private void Start()
     {
         mat = this.gameObject.GetComponent<MeshRenderer>().material;
         matColor = new Vector3(mat.color.r * 255, mat.color.g * 255, mat.color.b * 255);
+  
+        type = "recolor";
     }
 
     public void Interact(Transform interactor)

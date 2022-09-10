@@ -13,7 +13,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField] float gravity = -13.0f;
     [SerializeField] [Range(0.0f, 0.5f)] float moveSmoothTime = 0.3f;
     [SerializeField] [Range(0.0f, 0.5f)] float mouseSmoothTime = 0.03f;
-    [SerializeField] [Range(1.0f, 2.0f)] float interractDistance = 1.5f;
+    [SerializeField] [Range(1.0f, 2.0f)] float interractDistance = 1f;
     float xRotation = 0.0f;
     float velocityY = 0.0f;
     CharacterController controller = null;
@@ -40,9 +40,7 @@ public class PlayerController : MonoBehaviour
     {
         if(active)
         {
-            if (Input.GetKeyDown(KeyCode.Mouse0))
-                InterractWithObject();
-
+            InterractWithObject();
             MouseLook();
             Move();
         }
@@ -63,9 +61,18 @@ public class PlayerController : MonoBehaviour
             IInteractable interactable = hit.transform.GetComponent<IInteractable>();
 
             if(interactable != null)
-                interactable.Interact(this.transform);
+            {        
+                EventSystem.instance.UpdateCrosshair(interactable.type);
+
+                if (Input.GetKeyDown(KeyCode.Mouse0))
+                {
+                    interactable.Interact(this.transform);
+                }
+
+            }
         }
-        Debug.DrawRay(ray.origin, ray.direction, Color.green);
+        else
+            EventSystem.instance.UpdateCrosshair("");
     }
     private void MouseLook()
     {

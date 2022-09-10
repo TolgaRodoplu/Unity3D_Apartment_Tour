@@ -6,7 +6,20 @@ public class Handle : MonoBehaviour, IInteractable
 {
     Transform parent;
     bool grabbed = false;
-    float maxDistance = 1f;
+    float maxDistance = 0.6f;
+
+    string _type;
+    
+    public string type
+    {
+        get => _type;
+        set => _type = value;
+    }
+
+    void Start()
+    {
+        type = "grab";
+    }
 
     public void Interact(Transform interactor)
     {

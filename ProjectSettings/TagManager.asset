@@ -6,6 +6,11 @@ TagManager:
   tags:
   - DoorHandle
   - grabbable
+  - recolor
+  - grab
+  - turn off
+  - turn on
+  - ring
   layers:
   - Default
   - TransparentFX

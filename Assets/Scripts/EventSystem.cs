@@ -8,7 +8,7 @@ public class EventSystem : MonoBehaviour
     public static EventSystem instance;
     public event Action roamMode;
     public event EventHandler<Vector3> colorMode, colorUpdated;
-
+    public event EventHandler<string> crosshairUpdated;
     private void Awake()
     {
         instance = this;
@@ -33,5 +33,11 @@ public class EventSystem : MonoBehaviour
         colorUpdated?.Invoke(this, rgb);
         Debug.Log("ColorUpdate");
     }
+
+    public void UpdateCrosshair(string tag)
+    {
+        crosshairUpdated?.Invoke(this, tag);
+    }
+
 }
 

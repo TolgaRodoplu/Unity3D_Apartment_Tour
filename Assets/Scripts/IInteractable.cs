@@ -4,5 +4,6 @@ using UnityEngine;
 
 public interface IInteractable 
 {
-    void Interact(Transform interactor);
+    public string type {get; set;}
+    public void Interact(Transform interactor);
 }
