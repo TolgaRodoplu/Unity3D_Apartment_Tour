@@ -14,10 +14,13 @@ public class Crosshair : MonoBehaviour
         crosshairText.text = "";
     }
 
-    public void UpdateCrosshairText(object sender, string txt)
+    public void UpdateCrosshairText(object sender, string type)
     {
-        if(!Input.GetKey(KeyCode.Mouse0) && !txt.Equals("Untagged"))
-            crosshairText.text = txt;
+        if(!Input.GetKey(KeyCode.Mouse0) && !type.Equals("Untagged"))
+            crosshairText.text = type;
+        
+        else    
+            crosshairText.text = null;
     }
 
     
