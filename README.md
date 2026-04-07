@@ -112,11 +112,6 @@ Singleton event manager for decoupled communication:
 A playable build is available for download:
 [Google Drive Build Link](https://drive.google.com/drive/folders/1Aw0HWx4HupxjlxLvTjUQnUB9aC9DbUsH?usp=sharing)
 
-## Development Notes
-
-### Known Issues
-- `MotionSensorLight.cs` lines 18 and 27 have stray semicolons after if-conditions (intentional or bug)
-
 ### Architecture
 - Event-driven design for loose coupling between systems
 - All interactions go through the `IInteractable` interface
